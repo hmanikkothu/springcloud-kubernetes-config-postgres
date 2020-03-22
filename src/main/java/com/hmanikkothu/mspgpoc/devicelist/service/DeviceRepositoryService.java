@@ -16,7 +16,7 @@ public class DeviceRepositoryService {
 	DeviceRepository deviceRepository;
 
 	public DeviceList getDeviceList(DeviceListRequest request) {
-		List<Device> list = deviceRepository.findByBrandCode(request.getDeviceCode());
+		List<Device> list = deviceRepository.findByCode(request.getDeviceCode());
 		return new DeviceList(list);
 	}
 
