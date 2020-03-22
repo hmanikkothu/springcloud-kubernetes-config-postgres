@@ -2,6 +2,28 @@
 
 ## OpenShift
 
+#### Create ServiceAccount, Role, RoleBinding
+```
+oc create sa-role-rb.yml
+```
+#### Create App Service
+```
+oc create service.yml
+```
+#### Create Route
+```
+oc create route.yml
+```
+#### Create external DB Service and Endpoint
+```
+oc create db-service.yml
+oc create db-endpoint.yml
+```
+#### Create DeploymentConfig
+```
+oc create deploymentconfig.yml
+```
+
 ## PostgreSQL setup
 
 ### Allow access from the cluster 
