@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: ms-pg-poc
+  main:
+    allow-bean-definition-overriding: true #For redefinition of datasource from configMap
+#  datasource:
+#    hikari:
+#      connectionTimeout: 20000
+#      maximumPoolSize: 5
+#    url: jdbc:postgresql://192.168.1.104:5432/odl  # for local test
+##    url: jdbc:postgresql://dbsvc/odl     # for test in minishift
+#    username: hari
+#    password: postgres
+  cloud:
+    kubernetes:
+      reload:
+        enabled: true
+        mode: polling
+        period: 2000
+      config:
+        name: ms-pg-poc
+        namespace: ms-pg-poc
+        sources:
+          # Spring Cloud Kubernetes will lookup a ConfigMap
+          # named c1 in namespace default-namespace
+          - name: ms-pg-poc
+management:
+  endpoint:
+    refresh:
+      enabled: true
+    restart:
+      enabled: true

@@ -1,0 +1,33 @@
+apiVersion: apps.openshift.io/v1
+kind: DeploymentConfig
+metadata:
+  labels:
+    app: ms-pg-poc
+    version: latest
+  name: ms-pg-poc
+  namespace: ms-pg-poc
+spec:
+  replicas: 1
+  selector:
+    app: ms-pg-poc
+    deploymentconfig: ms-pg-poc
+  template:
+    metadata:
+      labels:
+        app: ms-pg-poc
+        deploymentconfig: ms-pg-poc
+        version: latest
+    spec:
+      containers:
+        - image: docker.io/hmanikkothu/ms-pg-poc
+          imagePullPolicy: Always
+          name: ms-pg-poc
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+      serviceAccountName: "config-reader"
