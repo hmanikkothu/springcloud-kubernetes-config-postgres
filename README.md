@@ -4,7 +4,7 @@
 
 ## PostgreSQL setup
 
-### Allow remote access 
+### Allow access from the cluster 
 
 Edit postgresql.conf
 ``` 
